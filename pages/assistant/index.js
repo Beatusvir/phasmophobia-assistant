@@ -5,12 +5,30 @@ import Ghost from "../../components/Ghost";
 class Assistant extends Component {
   state = {
     evidence: [
-      'EMF Level 5',
-      'Fingerprints',
-      'Freezing Temperatures',
-      'Ghost Orbs',
-      'Ghost Writing',
-      'Spirit Box'
+      {
+        type: 'EMF Level 5',
+        icon: '/emf.png'
+      },
+      {
+        type: 'Fingerprints',
+        icon: '/fingerprint.png'
+      },
+      {
+        type: 'Freezing Temperatures',
+        icon: '/freezingTemps.png'
+      },
+      {
+        type: 'Ghost Orbs',
+        icon: '/ghostOrb.png'
+      },
+      {
+        type: 'Ghost Writing',
+        icon: '/ghostWriting.png'
+      },
+      {
+        type: 'Spirit Box',
+        icon: '/spiritBox.png'
+      },
     ],
     ghosts: [
       {
@@ -150,10 +168,10 @@ class Assistant extends Component {
   }
 
   handleEvidenceClick = (e) => {
-    const clicked = e.target.innerHTML;
+    const clicked = e.target.dataset.type;
     let current = this.state.selectedEvidence;
     const found = this.state.selectedEvidence.indexOf(clicked);
-    found === -1 ? current.push(e.target.innerHTML) : current.splice(found, 1);
+    found === -1 ? current.push(e.target.dataset.type) : current.splice(found, 1);
     this.setState({
       selectedEvidence: current,
     });
@@ -172,6 +190,13 @@ class Assistant extends Component {
     return result;
   }
 
+  handleReset = (e) => {
+    e.preventDefault();
+    this.setState({
+      selectedEvidence: [],
+    })
+  }
+
   disabledEvidence = (ghosts) => {
     let current = [];
     ghosts.map(g => {
@@ -179,7 +204,6 @@ class Assistant extends Component {
         if (current.indexOf(e) === -1) current.push(e);
       })
     })
-    console.log(current);
     return current;
   }
 
@@ -190,24 +214,26 @@ class Assistant extends Component {
     const availableEvidence = this.disabledEvidence(filteredGhosts);
     return (
       <div className="phass">
+        <button className="phass__reset" onClick={this.handleReset} title="Reset">
+          <img src="/reset.png" alt="Reset"/>
+        </button>
         <div className="row">
           {this.state.evidence.map(e => (
             <Evidence
-              key={e}
-              type={e}
-              disabled={availableEvidence.indexOf(e) === -1}
-              selected={this.state.selectedEvidence.indexOf(e) !== -1}
+              key={e.type}
+              type={e.type}
+              icon={e.icon}
+              disabled={availableEvidence.indexOf(e.type) === -1}
+              selected={this.state.selectedEvidence.indexOf(e.type) !== -1}
               handleClick={this.handleEvidenceClick}
             />
           ))}
         </div>
+        <p>Possible Ghosts:</p>
         <div className="row">
           {filteredGhosts.map(g => (
             <Ghost key={g.type} {...g} />
           ))}
-        </div>
-        <div className="row">
-
         </div>
       </div>
     )

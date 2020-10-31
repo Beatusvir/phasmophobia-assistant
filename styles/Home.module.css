@@ -23,6 +23,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
 }
 
 .footer img {
@@ -118,5 +119,11 @@
   .grid {
     width: 100%;
     flex-direction: column;
+  }
+}
+
+@media (min-width: 768px) {
+  .footer {
+    margin-top: 50px;
   }
 }

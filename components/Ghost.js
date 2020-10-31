@@ -1,6 +1,6 @@
 function Ghost(props) {
   return (
-    <div className="col-md-4">
+    <div className="col">
       {props.type}
     </div>
   )
