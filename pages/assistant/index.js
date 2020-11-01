@@ -167,11 +167,10 @@ class Assistant extends Component {
     selectedEvidence: [],
   }
 
-  handleEvidenceClick = (e) => {
-    const clicked = e.target.dataset.type;
+  handleEvidenceClick = (type) => {
     let current = this.state.selectedEvidence;
-    const found = this.state.selectedEvidence.indexOf(clicked);
-    found === -1 ? current.push(e.target.dataset.type) : current.splice(found, 1);
+    const found = this.state.selectedEvidence.indexOf(type);
+    found === -1 ? current.push(type) : current.splice(found, 1);
     this.setState({
       selectedEvidence: current,
     });
