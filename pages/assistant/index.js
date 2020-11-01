@@ -111,7 +111,7 @@ class Assistant extends Component {
       {
         type: 'Revenant',
         evidence: [
-          'Ghost Orbs',
+          'EMF Level 5',
           'Freezing Temperatures',
           'Spirit Box'
         ],
