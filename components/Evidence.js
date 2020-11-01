@@ -1,6 +1,6 @@
 function Evidence(props) {
   return (
-    <div className="col-6 col-md-4">
+    <div className="col-6 col-lg-4">
       <button
         data-type={props.type}
         className={`phass__evidence ${props.disabled ? 'phass__evidence--disabled' : ''} ${props.selected ? 'phass__evidence--selected' : ''}`}
