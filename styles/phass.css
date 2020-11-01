@@ -45,13 +45,17 @@
   transform: scale(1.05,1.05);
 }
 
+.phass__evidence-text {
+  display: none;
+}
+
 .phass__evidence img {
   position: absolute;
-  right: 15px;
   width: 50px;
   height: auto;
+  left: 50%;
   top: 50%;
-  transform: translate(0, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .phass__evidence--disabled .phass__disabled {
@@ -92,5 +96,16 @@
 @media (min-width: 768px) {
   .phass__banner img {
     margin-bottom: 50px;
+  }
+  .phass__evidence-text {
+    display: block;
+  }
+  .phass__evidence img {
+    position: absolute;
+    right: 15px;
+    width: 50px;
+    height: auto;
+    top: 50%;
+    transform: translate(0, -50%);
   }
 }
