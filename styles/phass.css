@@ -27,8 +27,9 @@
   outline: 0;
 }
 
+
 .phass__evidence.highlight {
-  outline: 2px solid cyan;
+  box-shadow: 0 0 20px rgba(69, 208, 233, 0.75);
 }
 
 .phass__evidence--disabled {
@@ -41,7 +42,7 @@
 }
 
 .phass__evidence--selected {
-  border: 5px solid lightgreen;
+  border: 5px solid rgb(144, 238, 144);
 }
 
 .phass__evidence:hover {
@@ -99,6 +100,10 @@
 
 .phass__ghost {
   cursor: pointer;
+}
+
+.phass__ghost:hover {
+  color: cyan;
 }
 
 footer img {
