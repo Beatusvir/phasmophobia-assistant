@@ -3,6 +3,7 @@ function Evidence(props) {
     <div className="col-6 col-lg-4">
       <button
         className={`phass__evidence ${props.disabled ? 'phass__evidence--disabled' : ''} ${props.selected ? 'phass__evidence--selected' : ''}`}
+        data-evidence-type={props.type}
         onClick={props.disabled ? null : () => props.handleClick(props.type)}
       >
           <div className="phass__disabled"></div>

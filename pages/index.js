@@ -21,14 +21,14 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
-        Contact me:&nbsp;
+        {(new Date()).getFullYear()}&nbsp;&copy;&nbsp;
         <a
           href="mailto:pirela_carlos@hotmail.com"
           rel="noopener noreferrer"
         >
           Ceps
         </a>
-        &nbsp;&copy; {(new Date()).getFullYear()}
+        <a href="https://github.com/Beatusvir/phasmophobia-assistant"><img src="/GitHub-Mark-32px.png" alt="Github Logo"/></a>
       </footer>
     </div>
   )

@@ -196,6 +196,25 @@ class Assistant extends Component {
     })
   }
 
+  handleGhostMouseOver = (ghostType) => {
+    if (!ghostType) return;
+
+    this.resetHightlight();
+    const over = this.state.ghosts.filter(g => g.type === ghostType);
+    if (!over || over.length > 1) return;
+
+    for(let i = 0; i < over[0].evidence.length; i += 1) {
+      document.querySelector('button.phass__evidence[data-evidence-type="' + over[0].evidence[i] + '"]').classList.add('highlight');
+    }
+  }
+
+  resetHightlight = () => {
+    const buttons = document.querySelectorAll('button.phass__evidence');
+    for (let i = 0; i < buttons.length; i += 1) {
+      buttons[i].classList.remove('highlight');
+    }
+  }
+
   disabledEvidence = (ghosts) => {
     let current = [];
     ghosts.map(g => {
@@ -229,9 +248,9 @@ class Assistant extends Component {
           ))}
         </div>
         <p>Possible Ghosts:</p>
-        <div className="row">
+        <div className="row" onMouseLeave={this.resetHightlight}>
           {filteredGhosts.map(g => (
-            <Ghost key={g.type} {...g} />
+            <Ghost key={g.type} {...g} handleMouseOver={this.handleGhostMouseOver} />
           ))}
         </div>
       </div>
