@@ -28,7 +28,12 @@ export default function Home() {
         >
           Ceps
         </a>
-        <a href="https://github.com/Beatusvir/phasmophobia-assistant"><img src="/GitHub-Mark-32px.png" alt="Github Logo"/></a>
+        <a
+          href="https://github.com/Beatusvir/phasmophobia-assistant"
+          target="_blank"
+        >
+          <img src="/GitHub-Mark-32px.png" alt="Github Logo" />
+        </a>
       </footer>
     </div>
   )
