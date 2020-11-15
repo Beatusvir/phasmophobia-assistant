@@ -1,6 +1,7 @@
 const { Component } = require("react");
 import Evidence from "../../components/Evidence";
 import Ghost from "../../components/Ghost";
+import Objective from "../../components/Objective";
 
 class Assistant extends Component {
   state = {
@@ -164,6 +165,58 @@ class Assistant extends Component {
         tips: '',
       },
     ],
+    objectives: [
+      {
+        name: 'Discover what type of Ghost we are dealing with',
+        key: 'ghost type',
+        checked: true,
+      },
+      {
+        name: 'Have a member of your team witness a Ghost Event',
+        key: 'ghost event',
+        checked: false,
+      },
+      {
+        name: 'Capture a photo of the Ghost',
+        key: 'ghost photo',
+        checked: false,
+      },
+      {
+        name: 'Capture a photo of Dirty Water in a sink',
+        key: 'dirty water',
+        checked: false,
+      },
+      {
+        name: 'Find evidence of the paranormal with an EMF Reader',
+        key: 'emf reader',
+        checked: false,
+      },
+      {
+        name: 'Detect a room below 10 Celsius/50 Fahrenheit with a Thermometer',
+        key: 'thermometer below 10c/50f',
+        checked: false,
+      },
+      {
+        name: 'Detect a Ghosts presence with a Motion Sensor',
+        key: 'motion sensor',
+        checked: false,
+      },
+      {
+        name: 'Cleanse the area near the Ghost using Smudge Sticks',
+        key: 'smudge sticks',
+        checked: false,
+      },
+      {
+        name: 'Prevent the Ghost from hunting with a Crucifix',
+        key: 'crucifix',
+        checked: false,
+      },
+      {
+        name: 'Get a Ghost to walk through Salt',
+        key: 'salt',
+        checked: false,
+      },
+    ],
     selectedEvidence: [],
   }
 
@@ -191,9 +244,15 @@ class Assistant extends Component {
 
   handleReset = (e) => {
     e.preventDefault();
+    let objectives = this.state.objectives;
+    objectives.forEach(o => o.checked = false);
+    objectives[0].checked = true;
     this.setState({
       selectedEvidence: [],
-    })
+      objectives,
+    });
+    let currentEvidences = document.querySelectorAll('.phass__objectives li');
+    currentEvidences.forEach(ce => ce.className = '');
   }
 
   handleGhostMouseOver = (ghostType) => {
@@ -203,8 +262,26 @@ class Assistant extends Component {
     const over = this.state.ghosts.filter(g => g.type === ghostType);
     if (!over || over.length > 1) return;
 
-    for(let i = 0; i < over[0].evidence.length; i += 1) {
+    for (let i = 0; i < over[0].evidence.length; i += 1) {
       document.querySelector('button.phass__evidence[data-evidence-type="' + over[0].evidence[i] + '"]').classList.add('highlight');
+    }
+  }
+
+  handleObjectiveClick = (e) => {
+    if (!e) return;
+    const found = this.state.objectives.findIndex(o => o.name === e.target.value);
+    const objectives = this.state.objectives;
+    objectives[found].checked = e.target.checked;
+    this.setState({
+      objectives,
+    });
+  }
+
+  handleDoneEvidenceClick = (e) => {
+    if (e.target.className === 'done') {
+      e.target.classList.remove('done');
+    } else {
+      e.target.classList.add('done');
     }
   }
 
@@ -232,9 +309,45 @@ class Assistant extends Component {
     const availableEvidence = this.disabledEvidence(filteredGhosts);
     return (
       <div className="phass">
-        <button className="phass__reset" onClick={this.handleReset} title="Reset">
-          <img src="/reset.png" alt="Reset"/>
-        </button>
+        <div className="modal fade" id="modalObjectives" data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Optional Objectives</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <div className="objectives">
+                  {this.state.objectives.map(o => (
+                    <Objective
+                      name={o.name}
+                      handleMouseClick={this.handleObjectiveClick}
+                      checked={o.checked}
+                      key={o.name}
+                    />
+                  ))}
+                </div>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-6 col-lg-4">
+            <button className="phass__show-objectives" data-toggle="modal" data-target="#modalObjectives" title="Show objectives">
+              <img src="/objectives.png" alt="Show Objectives" />
+            </button>
+          </div>
+          <div className="col-6 col-lg-4">
+            <button className="phass__reset" onClick={this.handleReset} title="Reset">
+              <img src="/reset.png" alt="Reset" />
+            </button>
+          </div>
+        </div>
         <div className="row">
           {this.state.evidence.map(e => (
             <Evidence
@@ -247,11 +360,25 @@ class Assistant extends Component {
             />
           ))}
         </div>
-        <p>Possible Ghosts:</p>
-        <div className="row" onMouseLeave={this.resetHightlight}>
-          {filteredGhosts.map(g => (
-            <Ghost key={g.type} {...g} handleMouseOver={this.handleGhostMouseOver} />
-          ))}
+        <div className="row">
+          <div className="col-12">
+            <p className="phass__objectives-title">Objectives:</p>
+            <ul className="phass__objectives">
+              {this.state.objectives.filter(of => of.checked).map(o => (
+                <li key={o.key} onClick={this.handleDoneEvidenceClick}>{o.key}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12">
+            <p className="phass__possible-ghosts">Possible Ghosts:</p>
+            <ul className="phass__ghosts" onMouseLeave={this.resetHightlight}>
+              {filteredGhosts.map(g => (
+                <Ghost key={g.type} {...g} handleMouseOver={this.handleGhostMouseOver} />
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     )
