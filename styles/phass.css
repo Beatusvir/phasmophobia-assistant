@@ -95,6 +95,7 @@
   z-index: 1;
   opacity: 0.6;
 }
+
 .phass__show-objectives,
 .phass__reset {
   color: #fff;
@@ -107,9 +108,13 @@
 }
 
 .phass__show-objectives {
+  float: left;
+  display: inline-block;
+  margin-right: 5px;
 }
-
-.phass__reset {
+.phass__show-objectives img {
+  padding-bottom: 2px;
+  margin-right: 5px;
 }
 
 .phass__show-objectives:focus,

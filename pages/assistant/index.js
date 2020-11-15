@@ -338,9 +338,6 @@ class Assistant extends Component {
         </div>
         <div className="row">
           <div className="col-6 col-lg-4">
-            <button className="phass__show-objectives" data-toggle="modal" data-target="#modalObjectives" title="Show objectives">
-              <img src="/objectives.png" alt="Show Objectives" />
-            </button>
           </div>
           <div className="col-6 col-lg-4">
             <button className="phass__reset" onClick={this.handleReset} title="Reset">
@@ -362,7 +359,10 @@ class Assistant extends Component {
         </div>
         <div className="row">
           <div className="col-12">
-            <p className="phass__objectives-title">Objectives:</p>
+            <button className="phass__show-objectives" data-toggle="modal" data-target="#modalObjectives" title="Show objectives">
+              <img src="/objectives.png" alt="Show Objectives" />
+              Objectives:
+            </button>
             <ul className="phass__objectives">
               {this.state.objectives.filter(of => of.checked).map(o => (
                 <li key={o.key} onClick={this.handleDoneEvidenceClick}>{o.key}</li>
@@ -372,7 +372,7 @@ class Assistant extends Component {
         </div>
         <div className="row">
           <div className="col-12">
-            <p className="phass__possible-ghosts">Possible Ghosts:</p>
+            <p className="phass__possible-ghosts">Ghosts:</p>
             <ul className="phass__ghosts" onMouseLeave={this.resetHightlight}>
               {filteredGhosts.map(g => (
                 <Ghost key={g.type} {...g} handleMouseOver={this.handleGhostMouseOver} />
