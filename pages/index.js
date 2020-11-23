@@ -35,7 +35,6 @@ export default function Home() {
         >
           <img src="/GitHub-Mark-32px.png" alt="Github Logo" />
         </a>
-        <a href="https://phass.netlify.app/">&nbsp;Site will be moved here https://phass.netlify.app/</a>
       </footer>
     </div>
   )

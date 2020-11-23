@@ -326,83 +326,8 @@ class Assistant extends Component {
     const availableEvidence = this.disabledEvidence(filteredGhosts);
     return (
       <div className="phass">
-        <div className="modal fade" id="modalObjectives" data-backdrop="static" data-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Optional Objectives</h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">
-                <div className="objectives">
-                  {this.state.objectives.map(o => (
-                    <Objective
-                      name={o.name}
-                      handleMouseClick={this.handleObjectiveClick}
-                      checked={o.checked}
-                      key={o.name}
-                    />
-                  ))}
-                </div>
-              </div>
-              <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-6 col-lg-4">
-          </div>
-          <div className="col-6 col-lg-4">
-            <button className="phass__reset" onClick={this.handleReset} title="Reset">
-              <img src="/reset.png" alt="Reset" />
-            </button>
-          </div>
-        </div>
-        <div className="row">
-          {this.state.evidence.map(e => (
-            <Evidence
-              key={e.type}
-              type={e.type}
-              icon={e.icon}
-              disabled={availableEvidence.indexOf(e.type) === -1}
-              selected={this.state.selectedEvidence.indexOf(e.type) !== -1}
-              handleClick={this.handleEvidenceClick}
-            />
-          ))}
-        </div>
-        <div className="row">
-          <div className="col-12">
-            <button className="phass__show-objectives" data-toggle="modal" data-target="#modalObjectives" title="Show objectives">
-              <img src="/objectives.png" alt="Show Objectives" />
-              Objectives:
-            </button>
-            <ul className="phass__objectives">
-              {this.state.objectives.filter(of => of.checked).map(o => (
-                <li key={o.key} onClick={this.handleDoneEvidenceClick}>{o.key}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-12">
-            <p className="phass__possible-ghosts">Ghosts:</p>
-            <ul className="phass__ghosts" onMouseLeave={this.resetHightlight}>
-              {filteredGhosts.map(g => (
-                <Ghost key={g.type} {...g} handleMouseOver={this.handleGhostMouseOver} />
-              ))}
-            </ul>
-          </div>
-          <div className="col-12">
-            <div className="phass__ghost-info">
-              <p className="phass__ghost-strength">{this.state.currentStrength}</p>
-              <p className="phass__ghost-weakness">{this.state.currentWeakness}</p>
-            </div>
-          </div>
-        </div>
+        <h1>Guys Heroku free tier is about to remove this app, I had to move it to <a href="https://phass.netlify.app/" style={{ color: 'cyan' }}>netlify.</a></h1>
+        <h3 style={{ color: 'coral', textAlign: 'center' }}>Sorry for the trouble</h3>
       </div>
     )
   }
