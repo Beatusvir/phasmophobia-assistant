@@ -5,6 +5,8 @@ import Objective from "../../components/Objective";
 
 class Assistant extends Component {
   state = {
+    currentStrength: '',
+    currentWeakness: '',
     evidence: [
       {
         type: 'EMF Level 5',
@@ -39,8 +41,8 @@ class Assistant extends Component {
           'Ghost Writing',
           'Spirit Box',
         ],
-        weakness: '',
-        strenght: '',
+        strength: 'Using Smudge Sticks on a Spirit will stop it attacking for 120 seconds instead of 90',
+        weakness: 'The spirit has no discernible strengths, however is known to increase its hunting as your sanity drops',
         tips: '',
       },
       {
@@ -50,8 +52,8 @@ class Assistant extends Component {
           'Freezing Temperatures',
           'Spirit Box'
         ],
-        weakness: '',
-        strenght: '',
+        strength: 'Wraiths almost never touch the ground, meaning footprint sounds are rare to non-existant. It can travel through walls and doors without opening them. Wraiths will however leave footprints in salt if stepped in',
+        weakness: 'Wraiths have a toxic reaction to Salt. If a Wraith comes into contact with a pile of salt, it will immediately cease attacking',
         tips: '',
       },
       {
@@ -61,8 +63,8 @@ class Assistant extends Component {
           'Freezing Temperatures',
           'Ghost Orbs',
         ],
-        weakness: '',
-        strenght: '',
+        strength: 'Looking at a Phantom will considerably drop your Sanity. This refers to any visible manifestations of the Phantom, including during a Hunt',
+        weakness: 'Taking a photo of the Phantom will make it temporarily disappear. The Photo Camera will make it disappear, but it will not stop a Hunt',
         tips: '',
       },
       {
@@ -72,8 +74,8 @@ class Assistant extends Component {
           'Fingerprints',
           'Ghost Orbs',
         ],
-        weakness: '',
-        strenght: '',
+        strength: 'A Poltergeist is capable of influencing more objects at once than any other Ghosts, and is capable of shutting multiple doors at once',
+        weakness: 'A Poltergeist is almost ineffective in an empty room',
         tips: '',
       },
       {
@@ -83,8 +85,8 @@ class Assistant extends Component {
           'Fingerprints',
           'Freezing Temperatures',
         ],
-        weakness: '',
-        strenght: '',
+        strength: 'A Banshee will focus on one player at a time until it kills them',
+        weakness: 'Banshees fear the Crucifix, which boosts the Hunt-stopping range of one from 3 meters to 5 meters against it',
         tips: '',
       },
       {
@@ -94,8 +96,8 @@ class Assistant extends Component {
           'EMF Level 5',
           'Spirit Box'
         ],
-        weakness: '',
-        strenght: '',
+        strength: 'A Jinn will travel at a faster speed if its victim is far away',
+        weakness: 'Turning off the location`s power source will prevent the Jinn from using its ability',
         tips: '',
       },
       {
@@ -105,8 +107,8 @@ class Assistant extends Component {
           'Freezing Temperatures',
           'Spirit Box'
         ],
-        weakness: '',
-        strenght: '',
+        weakness: 'Turning the lights on will lower its chance to attack',
+        strength: 'Increased chance to attack in the dark. As such, it will do what it can to achieve this, such as turning off lights and tripping the fuse box',
         tips: '',
       },
       {
@@ -116,8 +118,8 @@ class Assistant extends Component {
           'Fingerprints',
           'Ghost Writing'
         ],
-        weakness: '',
-        strenght: '',
+        weakness: 'Hiding from the Revenant will cause it to move very slowly',
+        strength: 'A Revenant will travel at a significantly faster speed when hunting a victim. Additionally, the Revenant can freely switch whoever it is targeting during a Hunt',
         tips: '',
       },
       {
@@ -127,8 +129,8 @@ class Assistant extends Component {
           'Ghost Writing',
           'Ghost Orbs'
         ],
-        weakness: '',
-        strenght: '',
+        weakness: 'Conversely, a Shade will rarely start a Hunt when players are grouped together',
+        strength: 'As a shy ghost, a Shade will rarely perform actions in the presence of two or more people, making it harder to detect',
         tips: '',
       },
       {
@@ -138,8 +140,8 @@ class Assistant extends Component {
           'Ghost Writing',
           'Spirit Box'
         ],
-        weakness: '',
-        strenght: '',
+        weakness: 'Asking a Demon successful questions on the Ouija Board won`t lower the user`s sanity',
+        strength: 'Demons are the most aggressive and enter hunt mode more',
         tips: '',
       },
       {
@@ -149,8 +151,8 @@ class Assistant extends Component {
           'Ghost Writing',
           'Freezing Temperatures'
         ],
-        weakness: '',
-        strenght: '',
+        weakness: 'Using Smudge Sticks on the Yurei`s Ghost Room will cause it to not wander around the location for ~90 seconds',
+        strength: 'Yurei have been known to have a stronger effect on people`s Sanity',
         tips: '',
       },
       {
@@ -160,8 +162,8 @@ class Assistant extends Component {
           'Ghost Writing',
           'Spirit Box'
         ],
-        weakness: '',
-        strenght: '',
+        weakness: 'Being more active will make the Oni easier to find and identify',
+        strength: 'Oni are more active when people are nearby and have been seen moving objects at great speed',
         tips: '',
       },
     ],
@@ -220,6 +222,10 @@ class Assistant extends Component {
     selectedEvidence: [],
   }
 
+  componentDidMount() {
+    $('[data-toggle="tooltip"]').tooltip()
+  }
+
   handleEvidenceClick = (type) => {
     let current = this.state.selectedEvidence;
     const found = this.state.selectedEvidence.indexOf(type);
@@ -265,6 +271,10 @@ class Assistant extends Component {
     for (let i = 0; i < over[0].evidence.length; i += 1) {
       document.querySelector('button.phass__evidence[data-evidence-type="' + over[0].evidence[i] + '"]').classList.add('highlight');
     }
+    this.setState({
+      currentStrength: over[0].strength,
+      currentWeakness: over[0].weakness,
+    });
   }
 
   handleObjectiveClick = (e) => {
@@ -290,6 +300,10 @@ class Assistant extends Component {
     for (let i = 0; i < buttons.length; i += 1) {
       buttons[i].classList.remove('highlight');
     }
+    this.setState({
+      currentStrength: '',
+      currentWeakness: '',
+    });
   }
 
   disabledEvidence = (ghosts) => {
@@ -378,6 +392,10 @@ class Assistant extends Component {
                 <Ghost key={g.type} {...g} handleMouseOver={this.handleGhostMouseOver} />
               ))}
             </ul>
+            <div className="phass__ghost-info">
+              <p className="phass__ghost-strength">{this.state.currentStrength}</p>
+              <p className="phass__ghost-weakness">{this.state.currentWeakness}</p>
+            </div>
           </div>
         </div>
       </div>

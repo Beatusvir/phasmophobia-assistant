@@ -180,6 +180,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
 .phass__ghost {
@@ -190,6 +191,29 @@
 
 .phass__ghost:hover {
   color: cyan;
+}
+
+.phass__ghost:hover span {
+  display: block;
+}
+
+.phass__ghost-info {
+  position: absolute;
+  top: 25px;
+  font-size: 0.75rem;
+}
+
+.phass__ghost-info p {
+  margin: 0;
+  padding: 0;
+}
+
+.phass__ghost-strength {
+  color: lightcoral;
+}
+
+.phass__ghost-weakness {
+  color: lightgreen;
 }
 
 footer img {
