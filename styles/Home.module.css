@@ -23,7 +23,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 100px;
 }
 
 .footer img {
@@ -121,9 +121,8 @@
     flex-direction: column;
   }
 }
-
 @media (min-width: 768px) {
   .footer {
-    margin-top: 50px;
+    margin-top: 55px;
   }
 }

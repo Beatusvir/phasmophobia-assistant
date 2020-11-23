@@ -199,13 +199,12 @@
 
 .phass__ghost-info {
   position: absolute;
-  top: 25px;
-  font-size: 0.75rem;
 }
 
 .phass__ghost-info p {
   margin: 0;
   padding: 0;
+  font-size: 12px;
 }
 
 .phass__ghost-strength {

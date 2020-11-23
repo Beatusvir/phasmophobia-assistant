@@ -266,9 +266,12 @@ class Assistant extends Component {
 
     this.resetHightlight();
     const over = this.state.ghosts.filter(g => g.type === ghostType);
-    if (!over || over.length > 1) return;
+    console.log(over);
+    if (!over) return;
 
+    console.log('after');
     for (let i = 0; i < over[0].evidence.length; i += 1) {
+      console.log(document.querySelector('button.phass__evidence[data-evidence-type="' + over[0].evidence[i] + '"]'));
       document.querySelector('button.phass__evidence[data-evidence-type="' + over[0].evidence[i] + '"]').classList.add('highlight');
     }
     this.setState({
@@ -392,6 +395,8 @@ class Assistant extends Component {
                 <Ghost key={g.type} {...g} handleMouseOver={this.handleGhostMouseOver} />
               ))}
             </ul>
+          </div>
+          <div className="col-12">
             <div className="phass__ghost-info">
               <p className="phass__ghost-strength">{this.state.currentStrength}</p>
               <p className="phass__ghost-weakness">{this.state.currentWeakness}</p>
