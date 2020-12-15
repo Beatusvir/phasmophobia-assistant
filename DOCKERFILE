@@ -1,0 +1,25 @@
+# Base image and env
+FROM node:15-alpine
+ENV NODE_ENV=production \
+    PORT=3000
+
+# Set working directory
+WORKDIR /app/phass
+
+# Copy files
+COPY ["package.json", "yarn.lock", "./"]
+
+# Install dependecies 
+RUN yarn install --production
+
+# Copy the project files
+COPY . .
+
+# Build the project
+RUN yarn build
+
+# Expose port
+EXPOSE 3000
+
+# Run node server
+CMD [ "yarn", "start" ]
