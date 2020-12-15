@@ -10,6 +10,16 @@ npm run dev
 yarn dev
 ```
 
+Alternatively, you can run the following command to build a docker image and tag it as `phasmophobia-assistant:latest` locally.
+```bash
+docker build -f DOCKERFILE -t "phasmophobia-assistant:latest" .
+```
+
+Then you can run the image with 
+```bash
+docker run --name phasmophobia-assistant -p 3000:3000/tcp phasmophobia-assistant:latest
+```
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
