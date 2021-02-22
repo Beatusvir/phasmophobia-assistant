@@ -71,13 +71,28 @@
   display: none;
 }
 
-.phass__evidence img {
+.phass__evidence-icon {
   position: absolute;
   width: 50px;
   height: auto;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.phass__evidence-hide {
+  position: absolute;
+  width: 25px;
+  height: auto;
+  left: 20px;
+  top: 15px;
+  opacity: 0.25;
+  transform: translate(-50%, -50%);
+}
+
+.phass__evidence-hide--selected {
+  opacity: 1;
+  box-shadow: 2px 2px #ccc #ccc;
 }
 
 .phass__evidence--disabled .phass__disabled {
@@ -183,6 +198,10 @@
   position: relative;
 }
 
+.pass__ghost-name {
+  background-color: #ccc;
+}
+
 .phass__ghost {
   color: #ddd;
   cursor: pointer;
@@ -195,6 +214,10 @@
 
 .phass__ghost:hover span {
   display: block;
+}
+
+.phass__ghost--hidden {
+  opacity: 0.25;
 }
 
 .phass__ghost-info {
@@ -226,7 +249,7 @@ footer img {
   .phass__evidence-text {
     display: block;
   }
-  .phass__evidence img {
+  .phass__evidence-icon {
     position: absolute;
     right: 15px;
     width: 50px;

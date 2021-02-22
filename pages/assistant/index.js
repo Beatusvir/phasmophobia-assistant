@@ -33,6 +33,7 @@ class Assistant extends Component {
         icon: '/spiritBox.png'
       },
     ],
+    ghostName: '',
     ghosts: [
       {
         type: 'Spirit',
@@ -220,19 +221,37 @@ class Assistant extends Component {
       },
     ],
     selectedEvidence: [],
+    hiddenEvidence: [],
   }
 
   componentDidMount() {
     $('[data-toggle="tooltip"]').tooltip()
   }
 
-  handleEvidenceClick = (type) => {
+  handleEvidenceClick = (e, type) => {
+    if (e.target.classList.contains('phass__evidence-hide')) {
+      this.updateHiddenEvince(type);
+      return;
+    }
     let current = this.state.selectedEvidence;
     const found = this.state.selectedEvidence.indexOf(type);
     found === -1 ? current.push(type) : current.splice(found, 1);
     this.setState({
       selectedEvidence: current,
     });
+  }
+
+  updateHiddenEvince = (evidence) => {
+    let hiddenEvidence = this.state.hiddenEvidence;
+    let currentIndex = hiddenEvidence.indexOf(evidence);
+    if (currentIndex !== -1) {
+      hiddenEvidence.splice(currentIndex, 1);
+    } else {
+      hiddenEvidence.push(evidence);
+    }
+    this.setState({
+      hiddenEvidence,
+    })
   }
 
   missingEvidence = (ghosts) => {
@@ -255,7 +274,9 @@ class Assistant extends Component {
     objectives[0].checked = true;
     this.setState({
       selectedEvidence: [],
+      hiddenEvidence: [],
       objectives,
+      ghostName: '',
     });
     let currentEvidences = document.querySelectorAll('.phass__objectives li');
     currentEvidences.forEach(ce => ce.className = '');
@@ -266,12 +287,9 @@ class Assistant extends Component {
 
     this.resetHightlight();
     const over = this.state.ghosts.filter(g => g.type === ghostType);
-    console.log(over);
     if (!over) return;
 
-    console.log('after');
     for (let i = 0; i < over[0].evidence.length; i += 1) {
-      console.log(document.querySelector('button.phass__evidence[data-evidence-type="' + over[0].evidence[i] + '"]'));
       document.querySelector('button.phass__evidence[data-evidence-type="' + over[0].evidence[i] + '"]').classList.add('highlight');
     }
     this.setState({
@@ -298,6 +316,12 @@ class Assistant extends Component {
     }
   }
 
+  handleGhostNameInput = (e) => {
+    this.setState({
+      ghostName: e.target.value,
+    })
+  }
+
   resetHightlight = () => {
     const buttons = document.querySelectorAll('button.phass__evidence');
     for (let i = 0; i < buttons.length; i += 1) {
@@ -322,6 +346,9 @@ class Assistant extends Component {
   render() {
     const filteredGhosts = this.state.ghosts.filter(g => {
       return this.state.selectedEvidence.every(s => g.evidence.indexOf(s) !== -1);
+    })
+    const hiddenGhosts = this.state.ghosts.filter(g => {
+      return this.state.hiddenEvidence.every(s => g.evidence.indexOf(s) === -1);
     })
     const availableEvidence = this.disabledEvidence(filteredGhosts);
     return (
@@ -370,12 +397,19 @@ class Assistant extends Component {
               icon={e.icon}
               disabled={availableEvidence.indexOf(e.type) === -1}
               selected={this.state.selectedEvidence.indexOf(e.type) !== -1}
+              hidden={this.state.hiddenEvidence.indexOf(e.type) !== -1}
               handleClick={this.handleEvidenceClick}
             />
           ))}
         </div>
         <div className="row">
           <div className="col-12">
+            <div className="row form-group">
+              <label className="col-form-label col-4 col-lg-1" htmlFor="ghost-name">Name:</label>
+              <div className="col-8 col-lg-3">
+                <input className="form-control pass__ghost-name" type="text" onInput={this.handleGhostNameInput} value={this.state.ghostName} />
+              </div>
+            </div>
             <button className="phass__show-objectives" data-toggle="modal" data-target="#modalObjectives" title="Show objectives">
               <img src="/objectives.png" alt="Show Objectives" />
               Objectives:
@@ -392,7 +426,7 @@ class Assistant extends Component {
             <p className="phass__possible-ghosts">Ghosts:</p>
             <ul className="phass__ghosts" onMouseLeave={this.resetHightlight}>
               {filteredGhosts.map(g => (
-                <Ghost key={g.type} {...g} handleMouseOver={this.handleGhostMouseOver} />
+                <Ghost key={g.type} {...g} hidden={hiddenGhosts.filter(hg => hg.type === g.type).length === 0} handleMouseOver={this.handleGhostMouseOver} />
               ))}
             </ul>
           </div>
