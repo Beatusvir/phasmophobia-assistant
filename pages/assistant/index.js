@@ -220,7 +220,7 @@ class Assistant extends Component {
         checked: false,
       },
       {
-        name: 'Excape the Ghost during a hunt with no deaths',
+        name: 'Escape the Ghost during a hunt with no deaths',
         key: 'escape hunt',
         checked: false,
       },
