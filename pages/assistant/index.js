@@ -185,18 +185,8 @@ class Assistant extends Component {
         checked: false,
       },
       {
-        name: 'Capture a photo of Dirty Water in a sink',
-        key: 'dirty water',
-        checked: false,
-      },
-      {
         name: 'Find evidence of the paranormal with an EMF Reader',
         key: 'emf reader',
-        checked: false,
-      },
-      {
-        name: 'Detect a room below 10 Celsius/50 Fahrenheit with a Thermometer',
-        key: 'thermometer below 10c/50f',
         checked: false,
       },
       {
@@ -217,6 +207,31 @@ class Assistant extends Component {
       {
         name: 'Get a Ghost to walk through Salt',
         key: 'salt',
+        checked: false,
+      },
+      {
+        name: 'Detect a ghost pressence with a candle',
+        key: 'candle',
+        checked: false,
+      },
+      {
+        name: 'Detect Ghost footsteps with a parabolic mic during a hunt',
+        key: 'footsteps parabolic mic',
+        checked: false,
+      },
+      {
+        name: 'Excape the Ghost during a hunt with no deaths',
+        key: 'escape hunt',
+        checked: false,
+      },
+      {
+        name: 'Use smudge stick while the Ghost is hunting a player',
+        key: 'smudge hunt',
+        checked: false,
+      },
+      {
+        name: 'Get an average sanity below 25%',
+        key: 'sanity',
         checked: false,
       },
     ],
