@@ -215,11 +215,6 @@ class Assistant extends Component {
         checked: false,
       },
       {
-        name: 'Detect Ghost footsteps with a parabolic mic during a hunt',
-        key: 'footsteps parabolic mic',
-        checked: false,
-      },
-      {
         name: 'Escape the Ghost during a hunt with no deaths',
         key: 'escape hunt',
         checked: false,
