@@ -36,50 +36,6 @@ class Assistant extends Component {
     ghostName: '',
     ghosts: [
       {
-        type: 'Spirit',
-        evidence: [
-          'Fingerprints',
-          'Ghost Writing',
-          'Spirit Box',
-        ],
-        strength: 'Using Smudge Sticks on a Spirit will stop it attacking for 120 seconds instead of 90',
-        weakness: 'The spirit has no discernible strengths, however is known to increase its hunting as your sanity drops',
-        tips: '',
-      },
-      {
-        type: 'Wraith',
-        evidence: [
-          'Fingerprints',
-          'Freezing Temperatures',
-          'Spirit Box'
-        ],
-        strength: 'Wraiths almost never touch the ground, meaning footprint sounds are rare to non-existant. It can travel through walls and doors without opening them. Wraiths will however leave footprints in salt if stepped in',
-        weakness: 'Wraiths have a toxic reaction to Salt. If a Wraith comes into contact with a pile of salt, it will immediately cease attacking',
-        tips: '',
-      },
-      {
-        type: 'Phantom',
-        evidence: [
-          'EMF Level 5',
-          'Freezing Temperatures',
-          'Ghost Orbs',
-        ],
-        strength: 'Looking at a Phantom will considerably drop your Sanity. This refers to any visible manifestations of the Phantom, including during a Hunt',
-        weakness: 'Taking a photo of the Phantom will make it temporarily disappear. The Photo Camera will make it disappear, but it will not stop a Hunt',
-        tips: '',
-      },
-      {
-        type: 'Poltergeist',
-        evidence: [
-          'Spirit Box',
-          'Fingerprints',
-          'Ghost Orbs',
-        ],
-        strength: 'A Poltergeist is capable of influencing more objects at once than any other Ghosts, and is capable of shutting multiple doors at once',
-        weakness: 'A Poltergeist is almost ineffective in an empty room',
-        tips: '',
-      },
-      {
         type: 'Banshee',
         evidence: [
           'EMF Level 5',
@@ -88,6 +44,24 @@ class Assistant extends Component {
         ],
         strength: 'A Banshee will focus on one player at a time until it kills them',
         weakness: 'Banshees fear the Crucifix, which boosts the Hunt-stopping range of one from 3 meters to 5 meters against it',
+        tips: '',
+      },
+      {
+        type: 'Demon',
+        evidence: [
+          'Freezing Temperatures',
+          'Ghost Writing',
+          'Spirit Box'
+        ],
+        weakness: 'Asking a Demon successful questions on the Ouija Board won`t lower the user`s sanity',
+        strength: 'Demons are the most aggressive and enter hunt mode more',
+        tips: '',
+      },
+      {
+        type: 'Hantu',
+        evidence: ['Fingerprints', 'Ghost Orbs', 'Ghost Writing'],
+        strength: 'Moves faster in colder areas',
+        weakness: 'Moves slower in warmer areas',
         tips: '',
       },
       {
@@ -113,6 +87,39 @@ class Assistant extends Component {
         tips: '',
       },
       {
+        type: 'Oni',
+        evidence: [
+          'EMF Level 5',
+          'Ghost Writing',
+          'Spirit Box'
+        ],
+        weakness: 'Being more active will make the Oni easier to find and identify',
+        strength: 'Oni are more active when people are nearby and have been seen moving objects at great speed',
+        tips: '',
+      },
+      {
+        type: 'Phantom',
+        evidence: [
+          'EMF Level 5',
+          'Freezing Temperatures',
+          'Ghost Orbs',
+        ],
+        strength: 'Looking at a Phantom will considerably drop your Sanity. This refers to any visible manifestations of the Phantom, including during a Hunt',
+        weakness: 'Taking a photo of the Phantom will make it temporarily disappear. The Photo Camera will make it disappear, but it will not stop a Hunt',
+        tips: '',
+      },
+      {
+        type: 'Poltergeist',
+        evidence: [
+          'Spirit Box',
+          'Fingerprints',
+          'Ghost Orbs',
+        ],
+        strength: 'A Poltergeist is capable of influencing more objects at once than any other Ghosts, and is capable of shutting multiple doors at once',
+        weakness: 'A Poltergeist is almost ineffective in an empty room',
+        tips: '',
+      },
+      {
         type: 'Revenant',
         evidence: [
           'EMF Level 5',
@@ -135,14 +142,32 @@ class Assistant extends Component {
         tips: '',
       },
       {
-        type: 'Demon',
+        type: 'Spirit',
         evidence: [
-          'Freezing Temperatures',
+          'Fingerprints',
           'Ghost Writing',
+          'Spirit Box',
+        ],
+        strength: 'Using Smudge Sticks on a Spirit will stop it attacking for 120 seconds instead of 90',
+        weakness: 'The spirit has no discernible strengths, however is known to increase its hunting as your sanity drops',
+        tips: '',
+      },
+      {
+        type: 'Wraith',
+        evidence: [
+          'Fingerprints',
+          'Freezing Temperatures',
           'Spirit Box'
         ],
-        weakness: 'Asking a Demon successful questions on the Ouija Board won`t lower the user`s sanity',
-        strength: 'Demons are the most aggressive and enter hunt mode more',
+        strength: 'Wraiths almost never touch the ground, meaning footprint sounds are rare to non-existant. It can travel through walls and doors without opening them. Wraiths will however leave footprints in salt if stepped in',
+        weakness: 'Wraiths have a toxic reaction to Salt. If a Wraith comes into contact with a pile of salt, it will immediately cease attacking',
+        tips: '',
+      },
+      {
+        type: 'Yokai',
+        evidence: ['Spirit Box', 'Ghost Orbs', 'Ghost Writing'],
+        strength: 'Talking near a Yokai will anger it and cause it to attack more often',
+        weakness: 'While hunting, it can only hear voices close to it',
         tips: '',
       },
       {
@@ -154,17 +179,6 @@ class Assistant extends Component {
         ],
         weakness: 'Using Smudge Sticks on the Yurei`s Ghost Room will cause it to not wander around the location for ~90 seconds',
         strength: 'Yurei have been known to have a stronger effect on people`s Sanity',
-        tips: '',
-      },
-      {
-        type: 'Oni',
-        evidence: [
-          'EMF Level 5',
-          'Ghost Writing',
-          'Spirit Box'
-        ],
-        weakness: 'Being more active will make the Oni easier to find and identify',
-        strength: 'Oni are more active when people are nearby and have been seen moving objects at great speed',
         tips: '',
       },
     ],
