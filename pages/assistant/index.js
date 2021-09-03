@@ -1,6 +1,7 @@
 const { Component } = require("react");
 import Evidence from "../../components/Evidence";
 import Ghost from "../../components/Ghost";
+import Timer from "../../components/Timer";
 import Objective from "../../components/Objective";
 
 class Assistant extends Component {
@@ -417,13 +418,13 @@ class Assistant extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col-4 offset-4">
+          <div className="col">
             <button className="phass__reset" onClick={this.handleReset} title="Reset">
               <img src="/reset.png" alt="Reset" />
             </button>
           </div>
         </div>
-        <div className="row">
+        <div className="row justify-content-center">
           {this.state.evidence.map(e => (
             <Evidence
               key={e.type}

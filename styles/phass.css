@@ -35,6 +35,9 @@
   transition: transform 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
   text-align: left;
 }
+.phass__evidence-icon {
+  max-width: 70%;
+}
 
 .phass__possible-ghosts {
   color: #ddd;
@@ -140,6 +143,7 @@
 }
 
 .phass__show-objectives img,
+.phass__timer img,
 .phass__reset img {
   height: auto;
   width: 20px;
@@ -236,6 +240,24 @@
 
 .phass__ghost-weakness {
   color: lightgreen;
+}
+
+.phass__timer {
+  display: flex;
+  justify-content: left;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.phass__timer-play,
+.phass__timer-stop,
+.phass__timer-reset {
+  color: #fff;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  display: block;
+  padding: 0;
 }
 
 footer img {
