@@ -272,6 +272,12 @@
   width: 20px;
 }
 
+.phass__timer-play:focus,
+.phass__timer-stop:focus,
+.phass__timer-reset:focus {
+  outline: 0;
+}
+
 footer img {
   width: 20px;
 }
