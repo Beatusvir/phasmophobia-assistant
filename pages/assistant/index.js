@@ -418,7 +418,10 @@ class Assistant extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col">
+          <div className="col-12 col-md-6">
+            <Timer />
+          </div>
+          <div className="col-12 col-md-6">
             <button className="phass__reset" onClick={this.handleReset} title="Reset">
               <img src="/reset.png" alt="Reset" />
             </button>

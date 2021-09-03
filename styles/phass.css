@@ -143,7 +143,6 @@
 }
 
 .phass__show-objectives img,
-.phass__timer img,
 .phass__reset img {
   height: auto;
   width: 20px;
@@ -244,9 +243,15 @@
 
 .phass__timer {
   display: flex;
-  justify-content: left;
-  align-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin: 0 0 20px 0;
+}
+
+.phass__timer p {
+  margin: 0 20px 0 0;
+  padding: 0;
 }
 
 .phass__timer-play,
@@ -258,6 +263,13 @@
   outline: 0;
   display: block;
   padding: 0;
+  margin: 0 5px 0;
+}
+.phass__timer-play img,
+.phass__timer-stop img,
+.phass__timer-reset img {
+  height: auto;
+  width: 20px;
 }
 
 footer img {
@@ -279,5 +291,8 @@ footer img {
     height: auto;
     top: 50%;
     transform: translate(0, -50%);
+  }
+  .phass__timer {
+    margin: 0 20px 0 0;
   }
 }
