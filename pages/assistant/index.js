@@ -194,6 +194,28 @@ class Assistant extends Component {
         strength: 'Yurei have been known to have a stronger effect on people`s Sanity',
         tips: '',
       },
+      {
+        type: 'Goryo',
+        evidence: [
+          'EMF Level 5',
+          'Fingerprints',
+          'D.O.T.S Projector'
+        ],
+        weakness: 'They are rarely seen far from their place of death',
+        strength: 'A Goryo will usually only show itself on camera if there are no people nearby',
+        tips: '',
+      },
+      {
+        type: 'Myling',
+        evidence: [
+          'EMF Level 5',
+          'Fingerprints',
+          'Ghost Writing'
+        ],
+        weakness: 'Mylings more frequently make paranormal sounds',
+        strength: 'A Myling is known to be quieter when hunting',
+        tips: '',
+      },
     ],
     objectives: [
       {
@@ -381,6 +403,7 @@ class Assistant extends Component {
   }
 
   render() {
+    console.log(this.state.ghosts.length);
     const filteredGhosts = this.state.ghosts.filter(g => {
       return this.state.selectedEvidence.every(s => g.evidence.indexOf(s) !== -1);
     })

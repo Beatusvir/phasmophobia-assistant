@@ -181,7 +181,7 @@
 .phass__objectives li:after {
   content: "|";
   color: #ddd;
-  padding: 0 10px;
+  padding: 0 5px;
 }
 
 .phass__ghosts li:last-child:after,
