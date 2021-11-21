@@ -10,6 +10,10 @@ class Assistant extends Component {
     currentWeakness: '',
     evidence: [
       {
+        type: 'D.O.T.S Projector',
+        icon: '/dots.png'
+      },
+      {
         type: 'EMF Level 5',
         icon: '/emf.png'
       },
@@ -33,10 +37,6 @@ class Assistant extends Component {
         type: 'Spirit Box',
         icon: '/spiritBox.png'
       },
-      {
-        type: 'D.O.T.S Projector',
-        icon: '/dots.png'
-      }
     ],
     ghostName: '',
     ghosts: [
@@ -60,6 +60,17 @@ class Assistant extends Component {
         ],
         weakness: 'Asking a Demon successful questions on the Ouija Board won`t lower the user`s sanity',
         strength: 'Demons are the most aggressive and enter hunt mode more',
+        tips: '',
+      },
+      {
+        type: 'Goryo',
+        evidence: [
+          'EMF Level 5',
+          'Fingerprints',
+          'D.O.T.S Projector'
+        ],
+        weakness: 'They are rarely seen far from their place of death',
+        strength: 'A Goryo will usually only show itself on camera if there are no people nearby',
         tips: '',
       },
       {
@@ -96,6 +107,28 @@ class Assistant extends Component {
         tips: '',
       },
       {
+        type: 'Myling',
+        evidence: [
+          'EMF Level 5',
+          'Fingerprints',
+          'Ghost Writing'
+        ],
+        weakness: 'Mylings more frequently make paranormal sounds',
+        strength: 'A Myling is known to be quieter when hunting',
+        tips: '',
+      },
+      {
+        type: 'Obake',
+        evidence: [
+          'EMF Level 5',
+          'Fingerprints',
+          'Ghost Orbs'
+        ],
+        weakness: 'Sometimes this ghost will shapeshift, leaving behind unique evidence',
+        strength: 'When interacting with the environment, an Obake will rarely leave a trace',
+        tips: '',
+      },
+      {
         type: 'Oni',
         evidence: [
           'EMF Level 5',
@@ -104,6 +137,17 @@ class Assistant extends Component {
         ],
         weakness: 'Being more active will make the Oni easier to find and identify',
         strength: 'Oni are more active when people are nearby and have been seen moving objects at great speed',
+        tips: '',
+      },
+      {
+        type: 'Onryo',
+        evidence: [
+          'Freezing Temperatures',
+          'Ghost Orbs',
+          'Spirit Box'
+        ],
+        weakness: 'When threatened, this ghost will be less likely to hunt',
+        strength: 'Extinguishing a flame can cause an Onryo to attack',
         tips: '',
       },
       {
@@ -126,6 +170,17 @@ class Assistant extends Component {
         ],
         strength: 'A Poltergeist is capable of influencing more objects at once than any other Ghosts, and is capable of shutting multiple doors at once',
         weakness: 'A Poltergeist is almost ineffective in an empty room',
+        tips: '',
+      },
+      {
+        type: 'Raiju',
+        evidence: [
+          'EMF Level 5',
+          'Ghost Orbs',
+          'D.O.T.S Projector'
+        ],
+        weakness: 'Constantly disrupt electronic equipment',
+        strength: 'Moves faster near electrical devices',
         tips: '',
       },
       {
@@ -162,6 +217,17 @@ class Assistant extends Component {
         tips: '',
       },
       {
+        type: 'The Twins',
+        evidence: [
+          'EMF Level 5',
+          'Freezing Temperatures',
+          'Spirit Box'
+        ],
+        weakness: 'The Twins will often interact with the environment at the same time',
+        strength: 'Either Twin can be angered and initiate an attack on their prey',
+        tips: '',
+      },
+      {
         type: 'Wraith',
         evidence: [
           'D.O.T.S Projector',
@@ -192,28 +258,6 @@ class Assistant extends Component {
         ],
         weakness: 'Using Smudge Sticks on the Yurei`s Ghost Room will cause it to not wander around the location for ~90 seconds',
         strength: 'Yurei have been known to have a stronger effect on people`s Sanity',
-        tips: '',
-      },
-      {
-        type: 'Goryo',
-        evidence: [
-          'EMF Level 5',
-          'Fingerprints',
-          'D.O.T.S Projector'
-        ],
-        weakness: 'They are rarely seen far from their place of death',
-        strength: 'A Goryo will usually only show itself on camera if there are no people nearby',
-        tips: '',
-      },
-      {
-        type: 'Myling',
-        evidence: [
-          'EMF Level 5',
-          'Fingerprints',
-          'Ghost Writing'
-        ],
-        weakness: 'Mylings more frequently make paranormal sounds',
-        strength: 'A Myling is known to be quieter when hunting',
         tips: '',
       },
     ],
