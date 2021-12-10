@@ -107,6 +107,18 @@ class Assistant extends Component {
         tips: '',
       },
       {
+        type: 'Mimic',
+        evidence: [
+          'Ghost Orbs',
+          'Freezing Temperatures',
+          'Spirit Box',
+          'Fingerprints'
+        ],
+        weakness: 'A Mimic\'s ghost orbs will give away its presence, moving around it when it roams around a house',
+        strength: 'The Mimi\'s strength is that it can copy traits of other ghosts',
+        tips: '',
+      },
+      {
         type: 'Myling',
         evidence: [
           'EMF Level 5',
