@@ -63,6 +63,17 @@ class Assistant extends Component {
         tips: '',
       },
       {
+        type: 'Deogen',
+        evidence: [
+          'Spirit Box',
+          'Ghost Writing',
+          'D.O.T.S Projector'
+        ],
+        weakness: 'Deogen require a lot of energy to form and will move very slowly when approaching its victim',
+        strength: 'Deogen constantly sense the living. You can run but you can\'t hide',
+        tips: '',
+      },
+      {
         type: 'Goryo',
         evidence: [
           'EMF Level 5',
@@ -116,6 +127,17 @@ class Assistant extends Component {
         ],
         weakness: 'A Mimic\'s ghost orbs will give away its presence, moving around it when it roams around a house',
         strength: 'The Mimi\'s strength is that it can copy traits of other ghosts',
+        tips: '',
+      },
+      {
+        type: 'Moroi',
+        evidence: [
+          'Freezing Temperatures',
+          'Spirit Box',
+          'Ghost Writing'
+        ],
+        weakness: 'Moroi suffer from hyperosmia, weakening them for longer periods',
+        strength: 'The weaker their victims, the stronger the Moroi becomes',
         tips: '',
       },
       {
@@ -226,6 +248,17 @@ class Assistant extends Component {
         ],
         strength: 'Using Smudge Sticks on a Spirit will stop it attacking for 120 seconds instead of 90',
         weakness: 'The spirit has no discernible strengths, however is known to increase its hunting as your sanity drops',
+        tips: '',
+      },
+      {
+        type: 'Thaye',
+        evidence: [
+          'Ghost Orbs',
+          'Ghost Writing',
+          'D.O.T.S Projector'
+        ],
+        weakness: 'Thaye will weaken over time, making them weaker, slower and less aggressive',
+        strength: 'Upon entering the location, Thaye will become active, defensive and agile',
         tips: '',
       },
       {
@@ -459,7 +492,6 @@ class Assistant extends Component {
   }
 
   render() {
-    console.log(this.state.ghosts.length);
     const filteredGhosts = this.state.ghosts.filter(g => {
       return this.state.selectedEvidence.every(s => g.evidence.indexOf(s) !== -1);
     })
