@@ -18,7 +18,7 @@ class Assistant extends Component {
         icon: '/emf.png'
       },
       {
-        type: 'Fingerprints',
+        type: 'Ultraviolet',
         icon: '/fingerprint.png'
       },
       {
@@ -44,7 +44,7 @@ class Assistant extends Component {
         type: 'Banshee',
         evidence: [
           'D.O.T.S Projector',
-          'Fingerprints',
+          'Ultraviolet',
           'Ghost Orbs',
         ],
         strength: 'A Banshee will focus on one player at a time until it kills them',
@@ -56,7 +56,7 @@ class Assistant extends Component {
         evidence: [
           'Freezing Temperatures',
           'Ghost Writing',
-          'Fingerprints'
+          'Ultraviolet'
         ],
         weakness: 'Asking a Demon successful questions on the Ouija Board won`t lower the user`s sanity',
         strength: 'Demons are the most aggressive and enter hunt mode more',
@@ -77,7 +77,7 @@ class Assistant extends Component {
         type: 'Goryo',
         evidence: [
           'EMF Level 5',
-          'Fingerprints',
+          'Ultraviolet',
           'D.O.T.S Projector'
         ],
         weakness: 'They are rarely seen far from their place of death',
@@ -87,7 +87,7 @@ class Assistant extends Component {
       {
         type: 'Hantu',
         evidence: [
-          'Fingerprints',
+          'Ultraviolet',
           'Ghost Orbs',
           'Freezing Temperatures'
         ],
@@ -98,7 +98,7 @@ class Assistant extends Component {
       {
         type: 'Jinn',
         evidence: [
-          'Fingerprints',
+          'Ultraviolet',
           'EMF Level 5',
           'Freezing Temperatures'
         ],
@@ -118,18 +118,6 @@ class Assistant extends Component {
         tips: '',
       },
       {
-        type: 'Mimic',
-        evidence: [
-          'Ghost Orbs',
-          'Freezing Temperatures',
-          'Spirit Box',
-          'Fingerprints'
-        ],
-        weakness: 'A Mimic\'s ghost orbs will give away its presence, moving around it when it roams around a house',
-        strength: 'The Mimi\'s strength is that it can copy traits of other ghosts',
-        tips: '',
-      },
-      {
         type: 'Moroi',
         evidence: [
           'Freezing Temperatures',
@@ -144,7 +132,7 @@ class Assistant extends Component {
         type: 'Myling',
         evidence: [
           'EMF Level 5',
-          'Fingerprints',
+          'Ultraviolet',
           'Ghost Writing'
         ],
         weakness: 'Mylings more frequently make paranormal sounds',
@@ -155,7 +143,7 @@ class Assistant extends Component {
         type: 'Obake',
         evidence: [
           'EMF Level 5',
-          'Fingerprints',
+          'Ultraviolet',
           'Ghost Orbs'
         ],
         weakness: 'Sometimes this ghost will shapeshift, leaving behind unique evidence',
@@ -188,7 +176,7 @@ class Assistant extends Component {
         type: 'Phantom',
         evidence: [
           'D.O.T.S Projector',
-          'Fingerprints',
+          'Ultraviolet',
           'Spirit Box'
         ],
         strength: 'Looking at a Phantom will considerably drop your Sanity. This refers to any visible manifestations of the Phantom, including during a Hunt',
@@ -199,7 +187,7 @@ class Assistant extends Component {
         type: 'Poltergeist',
         evidence: [
           'Spirit Box',
-          'Fingerprints',
+          'Ultraviolet',
           'Ghost Writing'
         ],
         strength: 'A Poltergeist is capable of influencing more objects at once than any other Ghosts, and is capable of shutting multiple doors at once',
@@ -259,6 +247,18 @@ class Assistant extends Component {
         ],
         weakness: 'Thaye will weaken over time, making them weaker, slower and less aggressive',
         strength: 'Upon entering the location, Thaye will become active, defensive and agile',
+        tips: '',
+      },
+      {
+        type: 'The Mimic',
+        evidence: [
+          'Ghost Orbs',
+          'Freezing Temperatures',
+          'Spirit Box',
+          'Ultraviolet'
+        ],
+        weakness: 'A Mimic\'s ghost orbs will give away its presence, moving around it when it roams around a house',
+        strength: 'The Mimi\'s strength is that it can copy traits of other ghosts',
         tips: '',
       },
       {
